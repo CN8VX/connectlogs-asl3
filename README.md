@@ -8,6 +8,7 @@
 
 ---
 
+<a name="english"></a>
 ## <img src="https://flagcdn.com/w20/us.png" width="30"/> English
 
 Connection Logger and ASTDB updater for AllStarLink 3
@@ -266,6 +267,7 @@ For any questions or issues:
 
 ---
 
+<a name="français"></a>
 ## <img src="https://flagcdn.com/w20/fr.png" width="30"/> Français
 
 Système de journalisation des connexions et mise à jour ASTDB pour AllStarLink 3
