@@ -1,4 +1,4 @@
-# ConnectLogs ASL3
+# Logfils for ASL3
 
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPLv3-green.svg)
@@ -15,10 +15,10 @@ Connection Logger and ASTDB updater for AllStarLink 3
 
 ### 📋 Description
 
-ConnectLogs-asl3 is a connection logging system for AllStarLink 3.<br>
+Logfils-asl3 is a connection logging system for AllStarLink 3.<br>
 It is compatible with the **ConnectLogs application** as it supports Supermon formats.<br>
 
-ConnectLogs-asl3 automatically manages:
+Logfils-asl3 automatically manages:
 - **Connection logging** for AllStar, EchoLink, IRLP
 - **Automatic updates** of the node database (ASTDB)
 - **Systemd service** with timer for periodic updates
@@ -47,12 +47,12 @@ ConnectLogs-asl3 automatically manages:
 1. **Download the package**
 ```bash
 cd /tmp
-wget https://github.com/CN8VX/connectlogs-asl3/releases/download/v1.0/connectlogs-asl3_1.0.deb
+wget https://github.com/CN8VX/logfils-asl3/releases/download/v1.0/logfils-asl3_1.0.deb
 ```
 
 2. **Install the package**
 ```bash
-sudo dpkg -i connectlogs-asl3_1.0.deb
+sudo dpkg -i logfils-asl3_1.0.deb
 ```
 
 3. **If needed, resolve dependencies**
@@ -82,6 +82,10 @@ sudo systemctl restart asterisk
 
 ### 🔍 Verification
 
+### Connection and Disconnection Test
+
+Perform a test by connecting to, then disconnecting from, one or more nodes.
+
 #### Check connection logs
 
 ```bash
@@ -94,70 +98,17 @@ Sun Jan 12 10:30:45 UTC 2025 == 1999 Connected AllStar 2000 <=IN== (:)
 Sun Jan 12 10:35:12 UTC 2025 == 1999 Disconnected AllStar 2000 <=IN== (:)
 ```
 
-#### Check ASTDB service
-
-```bash
-# Timer status
-systemctl status astdb.timer
-
-# Update logs
-cat /opt/logfils/astdb.log
-
-# Manually test the update
-sudo -u asterisk /usr/bin/php /opt/logfils/astdb.php
-```
-
-### ⚙️ Advanced Configuration
-
-#### Add private nodes
-
-Create the `/opt/logfils/privatenodes.txt` file:
-
-```bash
-sudo nano /opt/logfils/privatenodes.txt
-```
-
-Format (one node per line):
-```
-123456|CALLSIGN|Location|Frequency
-123457|MYCALL|My City|145.500
-```
-
-Then restart the timer:
-```bash
-sudo systemctl restart astdb.timer
-```
-
-#### Change update frequency
-
-Edit `/etc/systemd/system/astdb.timer`:
-
-```bash
-sudo nano /etc/systemd/system/astdb.timer
-```
-
-Modify the `OnUnitActiveSec` line (default: 6h):
-```ini
-OnUnitActiveSec=3h  # Update every 3 hours
-```
-
-Then reload:
-```bash
-sudo systemctl daemon-reload
-sudo systemctl restart astdb.timer
-```
-
 ### 🗑️ Uninstallation
 
 
 Uninstall (keeps configuration files)
 ```bash
-sudo apt remove connectlogs-asl3
+sudo apt remove logfils-asl3
 ```
 
 Complete uninstall (removes everything)
 ```bash
-sudo apt purge connectlogs-asl3
+sudo apt purge logfils-asl3
 ```
 
 ### 🐛 Troubleshooting
@@ -230,14 +181,6 @@ Sun Jan 12 10:30:50 UTC 2025 == 1999 Connected EchoLink 123456 =OUT=> CALLSIGN [
 Sun Jan 12 10:31:00 UTC 2025 == 1999 Disconnected IRLP 8500 <=IN== 
 ```
 
-### 🤝 Contribution
-
-Contributions are welcome! Feel free to:
-
-- 🐛 Report bugs via [Issues](https://github.com/CN8VX/connectlogs-asl3/issues)
-- 💡 Suggest improvements
-- 🔧 Submit Pull Requests
-
 ### 📄 License
 
 This project is developed by [CN8VX](https://www.qrz.com/db/CN8VX) under **GNU General Public License v3.0**.
@@ -277,10 +220,10 @@ Système de journalisation des connexions et mise à jour ASTDB pour AllStarLink
 
 ### 📋 Description
 
-ConnectLogs-asl3 est un système de journalisation des connexions pour AllStarLink 3.<br> 
+Logfils-asl3 est un système de journalisation des connexions pour AllStarLink 3.<br> 
 Il est compatible avec **l'application ConnectLogs**, car elle prend en charge les formats Supermon.<br>
 
-ConnectLogs-asl3 gère automatiquement :
+Logfils-asl3 gère automatiquement :
 - **Journalisation des connexions** AllStar, EchoLink, IRLP
 - **Mise à jour automatique** de la base de données des nœuds (ASTDB)
 - **Service systemd** avec timer pour les mises à jour périodiques
@@ -309,12 +252,12 @@ ConnectLogs-asl3 gère automatiquement :
 1. **Télécharger le paquet**
 ```bash
 cd /tmp
-wget https://github.com/CN8VX/connectlogs-asl3/releases/download/v1.0/connectlogs-asl3_1.0.deb
+wget https://github.com/CN8VX/logfils-asl3/releases/download/v1.0/logfils-asl3_1.0.deb
 ```
 
 2. **Installer le paquet**
 ```bash
-sudo dpkg -i connectlogs-asl3_1.0.deb
+sudo dpkg -i logfils-asl3_1.0.deb
 ```
 
 3. **Si besoin, résoudre les dépendances**
@@ -344,6 +287,10 @@ sudo systemctl restart asterisk
 
 ### 🔍 Vérification
 
+### Test de connexion et de déconnexion
+
+Effectuez un test en vous connectant, puis en vous déconnectant d’un ou de plusieurs nœuds.
+
 #### Vérifier les logs de connexion
 
 ```bash
@@ -356,70 +303,17 @@ Sun Jan 12 10:30:45 UTC 2025 == 1999 Connected AllStar 2000 <=IN== (:)
 Sun Jan 12 10:35:12 UTC 2025 == 1999 Disconnected AllStar 2000 <=IN== (:)
 ```
 
-#### Vérifier le service ASTDB
-
-```bash
-# Statut du timer
-systemctl status astdb.timer
-
-# Logs de mise à jour
-cat /opt/logfils/astdb.log
-
-# Tester manuellement la mise à jour
-sudo -u asterisk /usr/bin/php /opt/logfils/astdb.php
-```
-
-### ⚙️ Configuration avancée
-
-#### Ajouter des nœuds privés
-
-Créez le fichier `/opt/logfils/privatenodes.txt` :
-
-```bash
-sudo nano /opt/logfils/privatenodes.txt
-```
-
-Format (un nœud par ligne) :
-```
-123456|CALLSIGN|Localisation|Fréquence
-123457|MYCALL|Ma Ville|145.500
-```
-
-Puis redémarrez le timer :
-```bash
-sudo systemctl restart astdb.timer
-```
-
-#### Modifier la fréquence de mise à jour
-
-Éditez `/etc/systemd/system/astdb.timer` :
-
-```bash
-sudo nano /etc/systemd/system/astdb.timer
-```
-
-Modifiez la ligne `OnUnitActiveSec` (par défaut: 6h) :
-```ini
-OnUnitActiveSec=3h  # Mise à jour toutes les 3 heures
-```
-
-Puis rechargez :
-```bash
-sudo systemctl daemon-reload
-sudo systemctl restart astdb.timer
-```
-
 ### 🗑️ Désinstallation
 
 
 Désinstaller (garde les fichiers de configuration)
 ```bash
-sudo apt remove connectlogs-asl3
+sudo apt remove logfils-asl3
 ```
 
 Désinstaller complètement (supprime tout)
 ```bash
-sudo apt purge connectlogs-asl3
+sudo apt purge logfils-asl3
 ```
 
 ### 🐛 Dépannage
@@ -491,14 +385,6 @@ Sun Jan 12 10:30:45 UTC 2025 == 1999 Connected AllStar 2000 <=IN== (:)
 Sun Jan 12 10:30:50 UTC 2025 == 1999 Connected EchoLink 123456 =OUT=> CALLSIGN [EchoLink 123456] (Location)
 Sun Jan 12 10:31:00 UTC 2025 == 1999 Disconnected IRLP 8500 <=IN== 
 ```
-
-### 🤝 Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à :
-
-- 🐛 Signaler des bugs via les [Issues](https://github.com/CN8VX/connectlogs-asl3/issues)
-- 💡 Proposer des améliorations
-- 🔧 Soumettre des Pull Requests
 
 ### 📄 Licence
 
