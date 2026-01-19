@@ -221,7 +221,7 @@ Système de journalisation des connexions et mise à jour ASTDB pour AllStarLink
 ### 📋 Description
 
 **Logfils-asl3** est un système de journalisation des connexions pour AllStarLink 3.<br> 
-Il est compatible avec **[l'application ConnectLogs](https://github.com/CN8VX/ConnectLogs-for-Allmon3-and-Supermon)**, car elle prend en charge les formats Supermon.<br>
+Il est compatible avec **[l'application ConnectLogs](https://github.com/CN8VX/ConnectLogs-for-Allmon3-and-Supermon?tab=readme-ov-file#fran%C3%A7ais)**, car elle prend en charge les formats Supermon.<br>
 
 **Logfils-asl3** gère automatiquement :
 - **Journalisation des connexions** AllStar, EchoLink, IRLP
